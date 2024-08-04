@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./services.css";
 
 const Services = () => {
+    const [toggleState, setToggleState] = useState(0);
+    
+    const toggleTab = (index) =>{
+        setToggleState(index);
+    }
     return (
         <section className="services section" id="services">
             <h2 className="section__title">Services</h2>
@@ -11,13 +16,15 @@ const Services = () => {
                 <div className="services__content">
                     <div>
                         <h3 className="services__title">Presentation Skills Training</h3>
-                    </div>
+                    </div> 
 
-                    <span className="services__button">View more <i className="uil uil-arrow-right services__button-icon"></i></span>
+                    <span className="services__button" onClick={() => toogleTab(1)}>
+                        View more <i className="uil uil-arrow-right services__button-icon"></i></span>
 
-                    <div className="services__modal">
+                    <div className={toggleState === 1 ? "services__modal active-modal" : "services__modal"}>
                         <div className="services__model-content">
-                            <h3 className="services__modal-title"></h3>
+                            <i  onclick={() => toggleTab(0)} className="ui uil-times services__model-close"></i>
+                            <h3 className="services__modal-title">Presentation Skills Training</h3>
                             <p className="services__modal-description">  Service with more than 8 years of experience</p>
 
                             <ul className="services__modal-services grid">
@@ -56,11 +63,12 @@ const Services = () => {
                         <h3 className="services__title">Public Speaking Coaching</h3>
                     </div>
 
-                    <span className="services__button">View more <i className="uil uil-arrow-right services__button-icon"></i></span>
+                    <span  onClick={() => toogleTab(2)} className="services__button">View more <i className="uil uil-arrow-right services__button-icon"></i></span>
 
-                    <div className="services__modal">
+                    <div className={toggleState === 2 ? "services__modal active-modal" : "services__modal"}>
                         <div className="services__model-content">
-                            <h3 className="services__modal-title"></h3>
+                        <i  onclick={() => toggleTab(0)} className="ui uil-times services__model-close"></i>
+                            <h3 className="services__modal-title">Public Speaking Coaching</h3>
                             <p className="services__modal-description">  Service with more than 8 years of experience</p>
 
                             <ul className="services__modal-services grid">
@@ -99,11 +107,12 @@ const Services = () => {
                         <h3 className="services__title">Interpersonal Communication Skills</h3>
                     </div>
 
-                    <span className="services__button">View more <i className="uil uil-arrow-right services__button-icon"></i></span>
+                    <span onClick={() => toogleTab(3)} className="services__button">View more <i className="uil uil-arrow-right services__button-icon"></i></span>
 
-                    <div className="services__modal">
+                    <div className={toggleState === 3 ? "services__modal active-modal" : "services__modal"}>
                         <div className="services__model-content">
-                            <h3 className="services__modal-title"></h3>
+                        <i  onclick={() => toggleTab(0)} className="ui uil-times services__model-close"></i>
+                            <h3 className="services__modal-title">Interpersonal Communication Skills</h3>
                             <p className="services__modal-description">  Service with more than 8 years of experience</p>
 
                             <ul className="services__modal-services grid">
